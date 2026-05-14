@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#000" />
+  <text
+    x="800"
+    y="500"
+    text-anchor="middle"
+    fill="#d8d8d8"
+    font-family="cursive, Apple Chancery, Brush Script MT, serif"
+    font-size="120"
+  >
+    fin
+  </text>
+</svg>

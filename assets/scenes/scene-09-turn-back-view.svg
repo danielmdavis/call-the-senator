@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="inside" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#412f28" />
+      <stop offset="100%" stop-color="#261b17" />
+    </linearGradient>
+    <linearGradient id="portal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0bd7a" />
+      <stop offset="100%" stop-color="#a77f50" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#inside)" />
+  <rect y="590" width="1600" height="310" fill="#1b1412" />
+  <rect x="560" y="110" width="480" height="730" fill="#7f8ea6" />
+  <rect x="618" y="168" width="364" height="614" fill="url(#portal)" />
+  <rect x="646" y="196" width="308" height="558" fill="#3a4d68" />
+  <ellipse cx="230" cy="140" rx="62" ry="48" fill="#ffd792" opacity="0.84" />
+  <ellipse cx="1370" cy="140" rx="62" ry="48" fill="#ffd792" opacity="0.84" />
+  <ellipse cx="800" cy="470" rx="260" ry="150" fill="#f4ce89" opacity="0.12" />
+</svg>

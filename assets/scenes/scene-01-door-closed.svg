@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d4655" />
+      <stop offset="45%" stop-color="#28303d" />
+      <stop offset="100%" stop-color="#161b24" />
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#252b35" />
+      <stop offset="100%" stop-color="#0f131a" />
+    </linearGradient>
+    <linearGradient id="doorOuter" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5c3f2d" />
+      <stop offset="100%" stop-color="#3c281d" />
+    </linearGradient>
+    <linearGradient id="doorInner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7b5840" />
+      <stop offset="60%" stop-color="#684a35" />
+      <stop offset="100%" stop-color="#4b3428" />
+    </linearGradient>
+    <radialGradient id="spot" cx="50%" cy="38%" r="45%">
+      <stop offset="0%" stop-color="#b2c5de" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#b2c5de" stop-opacity="0" />
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.04" />
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#wall)" />
+  <rect y="620" width="1600" height="280" fill="url(#floor)" />
+  <ellipse cx="800" cy="260" rx="640" ry="200" fill="url(#spot)" />
+  <rect x="612" y="150" width="376" height="654" rx="4" fill="url(#doorOuter)" />
+  <rect x="646" y="184" width="308" height="586" rx="2" fill="url(#doorInner)" />
+  <rect x="676" y="220" width="248" height="240" fill="none" stroke="#8d6a53" stroke-opacity="0.55" />
+  <rect x="676" y="494" width="248" height="244" fill="none" stroke="#8d6a53" stroke-opacity="0.55" />
+  <circle cx="902" cy="485" r="9" fill="#dbbf7f" />
+  <rect width="1600" height="900" filter="url(#grain)" />
+</svg>

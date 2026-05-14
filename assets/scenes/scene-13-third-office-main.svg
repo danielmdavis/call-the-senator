@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#736e63" />
+      <stop offset="100%" stop-color="#504b43" />
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6f685d" />
+      <stop offset="100%" stop-color="#3f3a34" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#room)" />
+  <rect y="560" width="1600" height="340" fill="url(#floor)" />
+  <rect x="0" y="170" width="300" height="460" fill="#6c665b" />
+  <rect x="80" y="480" width="390" height="92" fill="#5a544a" />
+  <rect x="108" y="454" width="334" height="34" fill="#4c473f" />
+  <rect x="184" y="420" width="118" height="36" fill="#2d2d2d" />
+  <rect x="218" y="390" width="50" height="30" fill="#383838" />
+  <rect x="640" y="140" width="320" height="380" fill="#bcb39f" />
+  <rect x="670" y="170" width="260" height="320" fill="#d2c7b2" />
+  <rect x="1160" y="250" width="340" height="420" fill="#625b50" />
+  <rect x="1200" y="290" width="260" height="340" fill="#3e3933" />
+</svg>

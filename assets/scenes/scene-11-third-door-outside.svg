@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2b3445" />
+      <stop offset="100%" stop-color="#161d2a" />
+    </linearGradient>
+    <linearGradient id="insideLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d7d0c1" />
+      <stop offset="100%" stop-color="#a79d8c" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#wall)" />
+  <rect x="560" y="110" width="480" height="730" fill="#7d8ca6" />
+  <rect x="610" y="160" width="380" height="630" fill="#4a5a73" />
+  <rect x="636" y="186" width="328" height="578" fill="url(#insideLight)" />
+  <rect x="664" y="214" width="272" height="520" fill="#8f8778" />
+  <rect x="690" y="240" width="220" height="120" fill="#b8ad99" />
+  <rect x="690" y="382" width="220" height="170" fill="#908674" />
+  <rect x="690" y="572" width="220" height="140" fill="#a19989" />
+</svg>

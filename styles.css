@@ -1,0 +1,206 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  /* Page chrome — complements pure #000 scene frame */
+  --shell-bg: #080809;
+  --shell-bg-mid: #0e0e11;
+  --shell-text: #d4d4d8;
+  --shell-text-muted: #9b9ba3;
+  --button-bg: #121214;
+  --button-bg-hover: #18181c;
+  --button-border: #2a2a30;
+  --button-border-hover: #3a3a42;
+  --button-text: #ececf0;
+  --frame-border: #242428;
+  --frame-shadow: rgb(0 0 0 / 55%);
+  --keys-border: rgb(120 120 130 / 35%);
+  --keys-text: #a8a8b0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--shell-bg);
+  background-image: radial-gradient(
+    ellipse 120% 80% at 50% 0%,
+    var(--shell-bg-mid) 0%,
+    var(--shell-bg) 55%
+  );
+  color: var(--shell-text);
+}
+
+.game-shell {
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  /* Wider side rails so controls + caption get real room */
+  grid-template-columns: minmax(96px, 24vw) minmax(0, 1fr) minmax(96px, 28vw);
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.75rem);
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.controls-panel,
+.caption-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: stretch;
+  justify-content: center;
+  align-self: stretch;
+}
+
+.caption-panel {
+  padding-inline: 0.25rem;
+}
+
+button {
+  font-family: inherit;
+  border: 1px solid var(--button-border);
+  background: var(--button-bg);
+  color: var(--button-text);
+  border-radius: 0;
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--button-bg-hover);
+  border-color: var(--button-border-hover);
+}
+
+.scene-frame {
+  position: relative;
+  height: calc(100vh - 1rem);
+  aspect-ratio: 16 / 9;
+  width: auto;
+  /* Clearly narrower than height-derived 16:9 so side columns keep space */
+  max-width: min(
+    100%,
+    100vw - 1.5rem,
+    calc((100vh - 1rem) * (16 / 9) * 0.52)
+  );
+  justify-self: center;
+  overflow: hidden;
+  border: 1px solid var(--frame-border);
+  border-radius: 0;
+  box-shadow: 0 12px 40px var(--frame-shadow);
+  background: #000;
+}
+
+.scene-frame.scene-frame--baby-fade-in {
+  background: #000;
+}
+
+#scene-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.fin-credits {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 64%;
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+  line-height: 1.4;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--shell-text-muted);
+  letter-spacing: 0.03em;
+}
+
+.fin-credits__title {
+  margin: 0 0 0.2em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.fin-credits__byline {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+#hotspot-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.keys-flags-overlay {
+  display: none;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 10;
+  font-family: inherit;
+  font-size: clamp(0.72rem, 1.5vw, 0.95rem);
+  font-weight: normal;
+  line-height: 1.5;
+  padding: 0.4rem 0.6rem;
+  background: rgb(8 8 10 / 88%);
+  border: 1px solid var(--keys-border);
+  border-radius: 0;
+  color: var(--keys-text);
+  pointer-events: none;
+  letter-spacing: 0.02em;
+  white-space: pre-line;
+}
+
+.game-shell.keys-flags-visible .keys-flags-overlay {
+  display: block;
+}
+
+.hotspot {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hotspot:hover,
+.hotspot:focus-visible {
+  outline: none;
+}
+
+/* Hotspots are <button>s; block global button:hover styling when hitboxes are hidden */
+.game-shell:not(.hitboxes-visible) .hotspot:hover,
+.game-shell:not(.hitboxes-visible) .hotspot:focus-visible,
+.game-shell:not(.hitboxes-visible) .hotspot:active {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.game-shell.hitboxes-visible .hotspot {
+  border: 1px dashed rgb(140 140 150 / 35%);
+  background: rgb(140 140 150 / 8%);
+}
+
+.game-shell.hitboxes-visible .hotspot:hover,
+.game-shell.hitboxes-visible .hotspot:focus-visible {
+  border-color: rgb(160 160 170 / 55%);
+  background: rgb(160 160 170 / 14%);
+}
+
+#scene-caption {
+  margin: 0;
+  color: var(--shell-text-muted);
+  text-align: center;
+  line-height: 1.55;
+  font-size: clamp(0.88rem, 1.65vw, 1.12rem);
+  max-width: min(52ch, 100%);
+  margin-inline: auto;
+}
