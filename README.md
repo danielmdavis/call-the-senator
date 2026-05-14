@@ -14,12 +14,15 @@ Then open [http://localhost:4173](http://localhost:4173).
 
 ## Host on GitHub Pages (free)
 
-1. Create a repo on GitHub and push this project (default branch **`main`**).
-2. **Settings → Pages → Build and deployment**: set **Source** to **GitHub Actions** (not “Deploy from a branch”).
-3. Push to `main` (or run **Actions → Deploy GitHub Pages → Run workflow**). The workflow is [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
-4. After the job finishes, the site URL is shown on the workflow run and under **Settings → Pages** (usually `https://<username>.github.io/<repo>/`).
+**Live site (after the steps below):** [https://danielmdavis.github.io/call-the-senator/](https://danielmdavis.github.io/call-the-senator/)
 
-Paths are relative, so the game works at a project URL without extra config.
+1. Repo is **`danielmdavis/call-the-senator`** on branch **`main`**.
+2. **One-time:** **Settings → Pages → Build and deployment → Source:** choose **GitHub Actions** (not “Deploy from a branch”). Without this, the workflow cannot publish.
+3. Push to `main` or run **Actions → “Deploy GitHub Pages” → Run workflow**. Workflow file: [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
+4. If GitHub asks to approve the **`github-pages`** environment the first time, approve it under **Settings → Environments**.
+5. When the job is green, open the URL above (also shown on the workflow run and **Settings → Pages**).
+
+Paths are relative (`./assets/...`), so the game works at the project URL without extra config.
 
 ### Share from your laptop (temporary)
 

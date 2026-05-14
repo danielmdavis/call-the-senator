@@ -1,5 +1,6 @@
-# Deploy the static game to GitHub Pages (free).
-# After first push: Repo → Settings → Pages → Build and deployment → Source: GitHub Actions.
+# Deploy static game to GitHub Pages.
+# One-time: Repo → Settings → Pages → Build and deployment → Source: GitHub Actions
+# Site URL: https://danielmdavis.github.io/call-the-senator/
 
 name: Deploy GitHub Pages
 
@@ -14,7 +15,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
@@ -24,10 +25,24 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare site (no .git / dev-only files in artifact)
+        run: |
+          mkdir -p _site
+          cp index.html game.js styles.css _site/
+          cp -R assets _site/
+          : > _site/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: "."
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          path: "_site"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
